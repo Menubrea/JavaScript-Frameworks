@@ -1,5 +1,6 @@
 import { Nav } from './Nav';
 import styled from 'styled-components';
+import * as colors from '../../styles/Colors';
 
 const BaseHeader = styled.header`
   display: flex;
@@ -8,12 +9,13 @@ const BaseHeader = styled.header`
   padding: 0 1em;
 
   div {
-    background-color: purple;
+    background-color: ${colors.primary};
     height: fit-content;
     width: fit-content;
     padding: 0.2em 0.5em;
     border-radius: 5px;
-    color: white;
+    color: ${colors.light};
+    font-size: 20px;
   }
 `;
 

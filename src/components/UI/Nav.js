@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import * as colors from '../../styles/Colors';
 
 const NavList = styled.ul`
   display: flex;
@@ -10,18 +11,18 @@ const NavList = styled.ul`
   li {
     padding: 0.2em 0.2em;
     border-radius: 0.2em;
-    background-color: white;
+    background-color: ${colors.light};
     a {
       text-decoration: none;
-      color: purple;
+      color: ${colors.primary};
     }
     :nth-child(3) {
       border: 0.15em solid purple;
-      color: white;
+      color: ${colors.light};
       :hover {
-        background-color: purple;
+        background-color: ${colors.primary};
         a {
-          color: white;
+          color: ${colors.light};
         }
       }
       svg {

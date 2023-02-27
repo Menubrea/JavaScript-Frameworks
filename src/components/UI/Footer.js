@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import * as colors from '../../styles/Colors';
 
 const BaseFooter = styled.footer`
-  background-color: purple;
-  color: white;
+  background-color: ${colors.primary};
+  color: ${colors.light};
   padding: 0.5em;
   text-align: center;
 `;
