@@ -60,8 +60,9 @@ export function Product({ data, isLoading, isError, dispatch }) {
         localStorage.setItem('id', element.id);
         return setProduct(element);
       }
+      return false;
     });
-  }, [product, data]);
+  }, [product, data, id]);
 
   if (isLoading || !data) {
     return <Container>Loading..</Container>;

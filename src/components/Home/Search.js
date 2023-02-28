@@ -19,6 +19,7 @@ export function ProductSearch({ data, isLoading, isError }) {
     ) {
       return true;
     }
+    return false;
   });
 
   const handleChange = (e) => {

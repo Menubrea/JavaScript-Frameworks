@@ -46,7 +46,7 @@ export function Checkout({ dispatch }) {
   // Clear Cart on Checkout
   useEffect(() => {
     return dispatch({ type: 'clearCart' });
-  }, []);
+  }, [dispatch]);
   return (
     <CheckoutContainer>
       <div>

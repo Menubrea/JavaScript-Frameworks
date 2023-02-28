@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export function GetApi(url, id) {
+export function GetApi(url) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -21,7 +21,7 @@ export function GetApi(url, id) {
       }
     }
     getData();
-  }, [url, id]);
+  }, [url]);
   if (data) {
     return { data, isLoading, isError };
   }
