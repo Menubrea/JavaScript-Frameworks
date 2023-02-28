@@ -123,7 +123,7 @@ export function Nav({ state, dispatch }) {
 
         {state.cart.length !== 0 && window.location.pathname !== '/cart' && (
           <ShoppingCart
-            onMouseOver={() => setIsShown(true)}
+            onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)}
           >
             <Content>
