@@ -3,25 +3,21 @@ import * as colors from '../../styles/Colors';
 
 const StyledButton = styled.button`
   all: unset;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  color: ${colors.dark}
   text-decoration: none;
-  background-color: ${(props) => (props.primary ? colors.dark : colors.light)};
-  color: ${(props) => (props.primary ? colors.light : colors.dark)};
-  padding: 0.2em 1em;
-  font-size: 1.5rem;
+  padding: 0.15em 1em;
+  font-size: 1.3rem;
   display: block;
   width: fit-content;
   margin: 1em auto;
-  border-radius: 1em;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   :hover {
-    outline: 3px solid ${colors.secondary};
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
   }
 `;
 
 export function CustomButton(props) {
-  return (
-    <StyledButton primary={props.primary} onClick={props.onClick}>
-      {props.name}
-    </StyledButton>
-  );
+  return <StyledButton onClick={props.onClick}>{props.name}</StyledButton>;
 }
