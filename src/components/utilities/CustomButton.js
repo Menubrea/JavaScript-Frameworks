@@ -4,7 +4,7 @@ import * as colors from '../../styles/Colors';
 const StyledButton = styled.button`
   all: unset;
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  color: ${colors.dark}
+  color: ${colors.dark};
   text-decoration: none;
   padding: 0.15em 1em;
   font-size: 1.3rem;
