@@ -3,7 +3,7 @@ import * as colors from './../styles/Colors';
 
 export const ReviewContainer = styled.div`
   background-color: white;
-  padding: 1em;
+  padding: 0.5em 1em;
   margin: 0.5em 0;
   position: relative;
 
