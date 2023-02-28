@@ -4,22 +4,19 @@ import * as colors from './../../styles/Colors';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  background-color: ${(props) => (props.primary ? colors.dark : colors.light)};
-  color: ${(props) => (props.primary ? colors.light : colors.dark)};
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  color: ${colors.dark};
   padding: 0.2em 1em;
   font-size: 1.5rem;
   display: block;
   width: fit-content;
   margin: 1em auto;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
   :hover {
-    outline: 3px solid ${colors.secondary};
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
   }
 `;
 
 export function CustomLink(props) {
-  return (
-    <StyledLink primary={props.primary} to={props.to}>
-      {props.name}
-    </StyledLink>
-  );
+  return <StyledLink to={props.to}>{props.name}</StyledLink>;
 }
