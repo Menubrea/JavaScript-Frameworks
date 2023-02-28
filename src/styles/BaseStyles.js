@@ -37,9 +37,47 @@ export const ItemList = styled(BaseUl)`
   }
 `;
 
+export const IconButton = styled.button`
+  all: unset;
+  background-color: ${colors.accent};
+  color: ${colors.light};
+  outline: 2px solid ${colors.accent};
+  width: 10px;
+  height: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.3em;
+  border-radius: 100vw;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
+export const WideButton = styled.button`
+  all: unset;
+  display: block;
+  background-color: ${colors.light};
+  color: ${colors.dark};
+  outline: 2px solid ${colors.dark};
+
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 0.2em;
+
+  :hover {
+    background-color: ${colors.dark};
+    color: ${colors.light};
+  }
+`;
+
 export const Card = styled.li`
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
-  background-color: ${colors.light};
+  background-color: #ebebeb;
+  background-image: linear-gradient(120deg, #ebebeb 0%, #ffffff 100%);
   position: relative;
 
   a {
@@ -68,6 +106,7 @@ export const Card = styled.li`
   p {
     font-size: 1.1rem;
     line-height: 1;
+    margin: 0.2em 0 0.4em;
   }
 
   :hover {
@@ -86,8 +125,8 @@ export const SearchBar = styled.div`
     margin: 0 auto;
     max-width: 300px;
     border-radius: 100vw;
-    background-color: ${colors.primary};
-    color: ${colors.light};
+    border: 3px solid ${colors.primary};
+    color: ${colors.dark};
     padding: 0.5em 1em;
   }
   button {
