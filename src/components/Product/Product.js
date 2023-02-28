@@ -1,22 +1,22 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { GetApi } from '../../API/getData';
 import { BaseImg, Container } from '../../styles/BaseStyles';
 import * as colors from '../../styles/Colors';
 import { Price, Tags, Reviews } from '../';
-import { CustomLink } from '../utilities';
-
-const url = 'https://api.noroff.dev/api/v1/online-shop/';
+import { CustomButton } from '../utilities';
+import { useState, useEffect } from 'react';
 
 const ImgContainer = styled.div`
   position: relative;
   img {
-    height: clamp(30em, 50vh, 50em);
+    height: clamp(30em, 70.8vh, 50em);
     object-fit: cover;
   }
 `;
 
 const ContentContainer = styled.div`
+  padding: 1.5em;
+
   h1,
   p {
     margin: 0;
@@ -26,9 +26,18 @@ const ContentContainer = styled.div`
     font-size: 1.2rem;
     margin-bottom: 0.4em;
   }
+  @media only screen and (max-width: 800px) {
+    padding: 1em;
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding: 0;
+  }
 `;
 
 const ProductContainer = styled.div`
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1em;
@@ -41,9 +50,18 @@ const ProductContainer = styled.div`
   }
 `;
 
-export function Product() {
+export function Product({ data, isLoading, isError, dispatch }) {
+  const [product, setProduct] = useState({});
   let { id } = useParams();
-  const { data, isLoading, isError } = GetApi(url + id);
+
+  useEffect(() => {
+    data.filter((element) => {
+      if (element.id === id) {
+        localStorage.setItem('id', element.id);
+        return setProduct(element);
+      }
+    });
+  }, [product, data]);
 
   if (isLoading || !data) {
     return <Container>Loading..</Container>;
@@ -55,18 +73,22 @@ export function Product() {
 
   if (data) {
     return (
-      <ProductContainer key={data.id}>
-        {console.log(data)}
+      <ProductContainer key={product.id}>
         <ImgContainer>
-          <BaseImg src={data.imageUrl} alt={data.title} />
-          <Price item={data} />
+          <BaseImg src={product.imageUrl} alt={product.title} />
+          <Price item={product} />
         </ImgContainer>
         <ContentContainer>
-          <h1>{data.title}</h1>
-          <p>{data.description}</p>
-          {data.tags && <Tags data={data.tags} />}
-          {data.reviews && <Reviews data={data.reviews} />}
-          <CustomLink primary="primary" to="/" name="Add to Cart" />
+          <h1>{product.title}</h1>
+          <p>{product.description}</p>
+          {product.tags && <Tags data={product.tags} />}
+          {product.reviews && <Reviews data={product.reviews} />}
+          <CustomButton
+            key={product.id}
+            onClick={() => dispatch({ type: 'addProduct', payload: product })}
+            primary="primary"
+            name="Add to Cart"
+          />
         </ContentContainer>
       </ProductContainer>
     );
