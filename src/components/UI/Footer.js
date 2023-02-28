@@ -11,7 +11,7 @@ const BaseFooter = styled.footer`
 export function Footer() {
   return (
     <BaseFooter>
-      <div>All rights reserved | Menubrea &#174;</div>
+      <div>All Rights Reserved | Menubrea &#174;</div>
     </BaseFooter>
   );
 }
